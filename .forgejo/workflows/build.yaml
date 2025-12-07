@@ -21,7 +21,7 @@ jobs:
       image_name: codeberg.org/stackdrift-images/homepage
       upstream_image_search: hugomods/hugo
       upstream_name_short: hugo
-      fetch_submodules: true
+      fetch_submodules: "recursive"
       build_args: |
         DOMAIN=${{ vars.DOMAIN }}
     secrets:
