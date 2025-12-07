@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tech-blog-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: tech-blog
+  ports:
+    - protocol: TCP
+      port: 80        # Port the service exposes
+      targetPort: 80  # Port the pod is listening on

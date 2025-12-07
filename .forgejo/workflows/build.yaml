@@ -1,0 +1,28 @@
+name: Build and Publish Homepage Image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+    paths-ignore:
+      - 'k8s/**'
+      - 'README.md'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: stackdrift
+    uses: stackdrift-images/ci-templates/.forgejo/workflows/docker-build.yml@main
+    with:
+      image_name: codeberg.org/stackdrift-images/homepage
+      upstream_image_search: hugomods/hugo
+      upstream_name_short: hugo
+      fetch_submodules: true
+      build_args: |
+        DOMAIN=${{ vars.DOMAIN }}
+    secrets:
+      registry_password: ${{ secrets.REGISTRY_DEPLOY_KEY }}

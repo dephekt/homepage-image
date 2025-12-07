@@ -1,0 +1,224 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <div class="post-content">
+    
+    <!-- Media Services -->
+    <section class="service-section">
+      <h2 class="section-title">Media</h2>
+      <div class="services-grid">
+        
+        <a href="https://stream.{{ getenv "DOMAIN" }}" class="service-card">
+          <div class="service-icon">
+            <img src="/images/services/jellyfin.svg" alt="Jellyfin" width="48" height="48">
+          </div>
+          <h3>Streaming</h3>
+          <p>Watch movies and TV shows</p>
+        </a>
+
+        <a href="https://requests.stream.{{ getenv "DOMAIN" }}" class="service-card">
+          <div class="service-icon">
+            <img src="/images/services/jellyseerr.svg" alt="Jellyseerr" width="48" height="48">
+          </div>
+          <h3>Requests</h3>
+          <p>Request new content</p>
+        </a>
+
+        <a href="https://photos.{{ getenv "DOMAIN" }}" class="service-card">
+          <div class="service-icon">
+            <img src="/images/services/immich.svg" alt="Immich" width="48" height="48">
+          </div>
+          <h3>Photo Library</h3>
+          <p>Browse and manage photos</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section class="service-section">
+      <h2 class="section-title">AI</h2>
+      <p class="section-description">
+        🚧 Construction in progress - these services are not yet available
+      </p>
+      <div class="services-grid">
+        
+        <a href="https://ai.{{ getenv "DOMAIN" }}" class="service-card">
+          <div class="service-icon">
+            <img src="https://docs.openwebui.com/images/favicon.png" alt="Open WebUI" width="48" height="48">
+          </div>
+          <h3>AI Dashboard</h3>
+          <p>Chat with AI models</p>
+        </a>
+
+        <a href="https://gateway.ai.{{ getenv "DOMAIN" }}" class="service-card">
+          <div class="service-icon">
+            <img src="/images/services/money-with-wings.svg" alt="LiteLLM" width="48" height="48">
+          </div>
+          <h3>API & Billing</h3>
+          <p>LiteLLM gateway</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Streaming Request Backend -->
+    <section class="service-section">
+      <h2 class="section-title">Media Request Backend</h2>
+      <p class="section-description">
+        Radarr manages our movie collection, Sonarr handles TV shows—they track what we have, what we want, and where to find it. Both use NZBGet to grab and process new content. These tools work automatically behind the scenes, but you can access them directly if a request gets stuck.
+      </p>
+      <div class="services-grid">
+        
+        <a href="https://movies.stream.{{ getenv "DOMAIN" }}" class="service-card secondary">
+          <div class="service-icon">
+            <img src="/images/services/radarr.svg" alt="Radarr" width="48" height="48">
+          </div>
+          <h3>Movies</h3>
+          <p>Radarr management</p>
+        </a>
+
+        <a href="https://shows.stream.{{ getenv "DOMAIN" }}" class="service-card secondary">
+          <div class="service-icon">
+            <img src="/images/services/sonarr.svg" alt="Sonarr" width="48" height="48">
+          </div>
+          <h3>TV Shows</h3>
+          <p>Sonarr management</p>
+        </a>
+
+        <a href="https://grabs.stream.{{ getenv "DOMAIN" }}" class="service-card secondary">
+          <div class="service-icon">
+            <img src="/images/services/nzbget.svg" alt="NZBGet" width="48" height="48">
+          </div>
+          <h3>Downloads</h3>
+          <p>NZBGet queue</p>
+        </a>
+
+      </div>
+    </section>
+
+  </div>
+</article>
+
+<style>
+.service-section {
+  margin-bottom: calc(var(--content-gap) * 2);
+}
+
+.section-title {
+  margin: calc(var(--content-gap) * 1.5) 0 var(--gap) 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.section-description {
+  margin: 0 0 var(--content-gap) 0;
+  color: var(--secondary);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap);
+  margin-top: var(--content-gap);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: calc(var(--gap) * 1.5);
+  background: var(--entry);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: transform 0.1s, border-color 0.1s;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tertiary);
+}
+
+.service-card:active {
+  transform: translateY(-2px);
+}
+
+.service-card.secondary {
+  opacity: 0.85;
+}
+
+.service-card.secondary:hover {
+  opacity: 1;
+}
+
+.service-icon {
+  margin-bottom: 16px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--code-bg);
+  border-radius: 12px;
+}
+
+.service-icon.emoji-icon {
+  font-size: 32px;
+  background: transparent;
+}
+
+.service-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+@media screen and (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .service-card {
+    padding: var(--gap);
+  }
+  
+  .service-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .service-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .service-card h3 {
+    font-size: 16px;
+  }
+  
+  .service-card p {
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+</style>
+
+{{- end }}

@@ -1,0 +1,81 @@
+baseURL = 'https://www.dephekt.net/'
+languageCode = 'en-us'
+title = "Dan's Internal Services"
+theme = 'PaperMod'
+copyright = '© 2025 dephekt.net'
+
+enableRobotsTXT = true
+enableEmoji = false
+enableGitInfo = false
+
+
+[params]
+  defaultTheme = 'auto' # auto, light, dark
+  disableThemeToggle = false
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = false
+  UseHugoToc = true
+  disableSpecial1stPost = true
+  disableScrollToTop = false
+  comments = false
+  hidemeta = true
+  hideSummary = false
+  showtoc = false
+  tocopen = false
+
+  [params.homeInfoParams]
+    Title = "Landing Page"
+    Content = "Portal for friends and family to access internal services."
+
+[menu]
+  [[menu.main]]
+    identifier = "services"
+    name = "Services"
+    url = "/services/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "support"
+    name = "Support"
+    url = "/support/"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "privacy"
+    name = "Privacy"
+    url = "/privacy/"
+    weight = 15
+
+  [[menu.main]]
+    identifier = "terms"
+    name = "Terms"
+    url = "/terms/"
+    weight = 20
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[services]
+  [services.googleAnalytics]
+    ID = ""
+
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = false
+    lineNumbersInTable = false
+
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^DOMAIN$']

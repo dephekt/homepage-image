@@ -1,0 +1,32 @@
+# Hugo default output
+/public/
+/resources/_gen/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local config
+.env
+.env.local
+
+# MCP configuration (local)
+.mcp.json
+
+# Claude configuration
+.claude/
