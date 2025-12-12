@@ -10,6 +10,10 @@ This site provides:
 - `/apps` page - protected launcher for internal services (requires Keycloak auth)
 - Blog structure for future technical content
 
+![Screenshot of the services page showing links to each service offered to users when they are logged in](data/images/services.png)
+
+
+
 ## Architecture
 
 The site is deployed as a Docker container and exposed through Pangolin:
@@ -73,6 +77,17 @@ The site will be available at `http://localhost:1313`
 - `content/support/` - Support documentation and guides
   - `_index.md` - Support section landing page
   - `login.md` - Guide for logging into services
+- `static/.well-known/matrix/` - Matrix federation delegation files
+  - `server` - Tells Matrix servers where to find the homeserver
+  - `client` - Tells Matrix clients where to find the homeserver
+
+### Matrix Federation Delegation
+
+The homepage serves Matrix `.well-known` delegation files to enable vanity domain user IDs (`@username:example.com`) while the actual Matrix homeserver runs at `matrix.example.com`.
+
+These static JSON files are served at:
+- `https://www.example.com/.well-known/matrix/server`
+- `https://www.example.com/.well-known/matrix/client`
 
 ### DNS Configuration
 
