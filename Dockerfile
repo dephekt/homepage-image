@@ -3,6 +3,12 @@ FROM hugomods/hugo:0.152.1 AS builder
 WORKDIR /src
 COPY . .
 
+ARG DOMAIN
+ENV DOMAIN=${DOMAIN}
+
+# Ensure DOMAIN is provided so Hugo templating doesn't emit empty hostnames
+RUN : "${DOMAIN:?DOMAIN build arg required}"
+
 # Strip /static prefix from markdown files for Hugo build
 RUN find content -type f -name "*.md" -exec sed -i 's|/static/images/|/images/|g' {} +
 
