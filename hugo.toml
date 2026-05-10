@@ -1,5 +1,5 @@
 baseURL = 'https://www.dephekt.net/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = "Dan's Internal Services"
 theme = 'PaperMod'
 copyright = '© 2025 dephekt.net'
