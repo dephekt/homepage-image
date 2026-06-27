@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tech-blog
-        image: codeberg.org/stackdrift-images/homepage:latest
+        image: ghcr.io/dephekt/homepage-image:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
